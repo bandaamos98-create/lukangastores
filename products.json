@@ -1,38 +1,38 @@
 [
     {
         "id": 1,
-        "name": "fridges",
-        "category": "House Hold Goods",
+        "name": "Premium Fridge",
+        "category": "Household Goods",
         "price": 7000,
         "unit": "Per Unit",
         "img": "images/fridge.jpg",
-        "desc": "Premium steel bars for construction."
+        "desc": "High-quality fridge with modern cooling features."
     },
     {
         "id": 2,
-        "name": "Best Low Budget Fridge",
-        "category": "Indoor Ewuipments",
+        "name": "Budget Fridge",
+        "category": "Indoor Equipment",
         "price": 3600,
-        "unit": "piece",
+        "unit": "Piece",
         "img": "images/fridge 2.jpg",
-        "desc": "Complete two-piece steel bars set."
+        "desc": "Affordable fridge suitable for daily use."
     },
     {
         "id": 3,
-        "name": "32 Inches Hisense Tv",
+        "name": "32-inch Hisense TV",
         "category": "Entertainment",
         "price": 7800,
         "unit": "Piece",
         "img": "images/tvs.jpg",
-        "desc": "42.5 grade Portland Cement for strong concrete."
+        "desc": "HD TV perfect for movies and shows."
     },
     {
         "id": 4,
-        "name": "Cheap Furniture",
-        "category": "House Hold Euipmentt",
+        "name": "Basic Furniture Set",
+        "category": "Household Equipment",
         "price": 13500,
         "unit": "Set",
         "img": "images/furniture.jpg",
-        "desc": "High tensile deformed rebar."
+        "desc": "Affordable furniture set for your home."
     }
 ]
