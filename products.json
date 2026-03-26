@@ -1,1 +1,39 @@
 
+[
+    {
+        "id": 1,
+        "name": "fridges",
+        "category": "House Hold Goods",
+        "price": 7000,
+        "unit": "Per Unit",
+        "img": "images/fridge.jpg",
+        "desc": "Premium steel bars for construction."
+    },
+    {
+        "id": 2,
+        "name": "Best Low Budget Fridge",
+        "category": "Indoor Ewuipments",
+        "price": 3600,
+        "unit": "piece",
+        "img": "images/fridge 2.jpg",
+        "desc": "Complete two-piece steel bars set."
+    },
+    {
+        "id": 3,
+        "name": "32 Inches Hisense Tv",
+        "category": "Entertainment",
+        "price": 7800,
+        "unit": "Piece",
+        "img": "images/tvs.jpg",
+        "desc": "42.5 grade Portland Cement for strong concrete."
+    },
+    {
+        "id": 4,
+        "name": "Cheap Furniture",
+        "category": "House Hold Euipmentt",
+        "price": 13500,
+        "unit": "Set",
+        "img": "images/furniture.jpg",
+        "desc": "High tensile deformed rebar."
+    },
+]
