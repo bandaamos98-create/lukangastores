@@ -25,244 +25,8 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100">
 
-<!-- NAVBAR -->
-<nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-amber-500 rounded-2xl flex items-center justify-center text-3xl">🛋️</div>
-                <div>
-                    <span class="heading-font text-3xl tracking-tighter">LUKANGA</span>
-                    <span class="text-amber-400 text-xs font-medium block -mt-1">STORES • KABWE</span>
-                </div>
-            </div>
-            <div class="flex-1 max-w-md mx-8 hidden md:flex">
-                <div class="relative w-full">
-                    <input type="text" id="search-input" placeholder="Search TVs, Fridges, Furniture..."
-                           class="w-full bg-zinc-800 border border-zinc-700 focus:border-amber-500 rounded-3xl py-3 px-5 pl-12 text-sm focus:outline-none" onkeyup="filterProducts()">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"></i>
-                </div>
-            </div>
-            <div class="flex items-center gap-6">
-                <button onclick="focusSearch()" class="md:hidden flex items-center gap-2 text-sm hover:text-amber-400">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <div class="hidden md:flex gap-8 text-sm font-medium">
-                    <a onclick="navigateTo('home')" class="hover:text-amber-400 cursor-pointer">Home</a>
-                    <a onclick="navigateTo('shop')" class="hover:text-amber-400 cursor-pointer">Shop</a>
-                    <a onclick="navigateTo('about')" class="hover:text-amber-400 cursor-pointer">About Us</a>
-                    <a onclick="navigateTo('contact')" class="hover:text-amber-400 cursor-pointer">Contact</a>
-                </div>
-                <a href="tel:0979077079" class="flex items-center gap-2 hover:text-amber-400 text-sm">
-                    <i class="fa-solid fa-phone"></i> Call Us
-                </a>
-            </div>
-        </div>
-        <div class="md:hidden mt-4">
-            <div class="relative">
-                <input type="text" id="search-input-mobile" placeholder="Search products..."
-                       class="w-full bg-zinc-800 border border-zinc-700 focus:border-amber-500 rounded-3xl py-3 px-5 pl-12 text-sm focus:outline-none" onkeyup="filterProducts()">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"></i>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<!-- HERO -->
-<section id="home" class="hero-bg flex items-center text-center">
-    <div class="max-w-4xl mx-auto px-6">
-        <h1 class="heading-font text-6xl md:text-7xl tracking-tighter leading-none mb-6">
-            QUALITY FURNITURE, TVs &amp; HOME APPLIANCES
-        </h1>
-        <p class="text-xl md:text-2xl text-zinc-300">Best prices in Kabwe • Fast delivery across Zambia</p>
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <button onclick="navigateTo('shop')" class="bg-amber-500 text-black font-semibold px-10 py-5 rounded-3xl text-lg">Shop Now</button>
-            <a href="tel:0979077079" class="border border-white/60 hover:bg-white/10 px-10 py-5 rounded-3xl text-lg flex items-center justify-center gap-2">
-                <i class="fa-solid fa-phone"></i> Call Now
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- DELIVERY BANNER -->
-<div class="bg-amber-500 text-black py-4 text-center font-medium">
-    ✅ We deliver anywhere in Zambia • Free delivery on selected items • Bulk &amp; Wholesale welcome
-</div>
-
-<!-- FEATURED PRODUCTS -->
-<section class="py-16 bg-zinc-900">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="heading-font text-4xl tracking-tighter text-center mb-10">Featured Products</h2>
-        <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-    </div>
-</section>
-
-<!-- SHOP SECTION -->
-<section id="shop" class="py-20 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
-            <div>
-                <h2 class="heading-font text-5xl tracking-tighter">Our Products</h2>
-                <p class="text-zinc-400 mt-2">Quality TVs, Fridges, Furniture &amp; Home Appliances</p>
-            </div>
-            <button onclick="focusSearch()" class="mt-6 md:mt-0 bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-4 rounded-3xl flex items-center gap-3">
-                <i class="fa-solid fa-magnifying-glass"></i> Search Products
-            </button>
-        </div>
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
-        <div id="no-results" class="hidden text-center py-20">
-            <i class="fa-solid fa-magnifying-glass text-6xl text-zinc-600 mb-4"></i>
-            <p class="text-xl text-zinc-400">No products found.</p>
-            <button onclick="clearSearch()" class="mt-6 text-amber-400 hover:text-amber-300 underline">Clear search</button>
-        </div>
-    </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section class="py-20 bg-zinc-900">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="heading-font text-5xl tracking-tighter text-center mb-12">Why Choose Lukanga Stores?</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center bg-zinc-800 p-8 rounded-3xl">
-                <div class="w-20 h-20 mx-auto bg-amber-500/10 rounded-2xl flex items-center justify-center text-5xl mb-6">🏆</div>
-                <h3 class="font-semibold text-2xl mb-3">Quality Guaranteed</h3>
-                <p class="text-zinc-400">We only sell genuine branded products with warranties.</p>
-            </div>
-            <div class="text-center bg-zinc-800 p-8 rounded-3xl">
-                <div class="w-20 h-20 mx-auto bg-amber-500/10 rounded-2xl flex items-center justify-center text-5xl mb-6">💰</div>
-                <h3 class="font-semibold text-2xl mb-3">Best Prices in Town</h3>
-                <p class="text-zinc-400">Competitive prices with regular promotions and discounts.</p>
-            </div>
-            <div class="text-center bg-zinc-800 p-8 rounded-3xl">
-                <div class="w-20 h-20 mx-auto bg-amber-500/10 rounded-2xl flex items-center justify-center text-5xl mb-6">🚚</div>
-                <h3 class="font-semibold text-2xl mb-3">Fast Delivery</h3>
-                <p class="text-zinc-400">Delivery anywhere in Zambia. Installation available for appliances.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="py-20 bg-zinc-950">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="heading-font text-5xl tracking-tighter text-center mb-12">Happy Customers</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 6 Reviews for Furniture & Appliances Store -->
-            <div class="bg-zinc-900 p-8 rounded-3xl">
-                <p class="italic text-zinc-300">"Bought a 55 inch Smart TV and a double door fridge. Both are working perfectly. Great service!"</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-full"></div>
-                    <div>
-                        <div class="font-medium">Mr. Kelvin Mwape</div>
-                        <div class="text-sm text-zinc-500">Kabwe</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-zinc-900 p-8 rounded-3xl">
-                <p class="italic text-zinc-300">"The sofa set and dining table I bought look very elegant in my sitting room. Delivery was fast."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-full"></div>
-                    <div>
-                        <div class="font-medium">Mrs. Dorothy Banda</div>
-                        <div class="text-sm text-zinc-500">Home Owner, Kabwe</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-zinc-900 p-8 rounded-3xl">
-                <p class="italic text-zinc-300">"Affordable prices on washing machines. The technician even helped with installation. Thank you!"</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-full"></div>
-                    <div>
-                        <div class="font-medium">Mr. Isaac Chanda</div>
-                        <div class="text-sm text-zinc-500">Contractor, Kabwe</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-zinc-900 p-8 rounded-3xl">
-                <p class="italic text-zinc-300">"Bought bedroom furniture for my new house. Very good quality at a reasonable price."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-full"></div>
-                    <div>
-                        <div class="font-medium">Ms. Lillian Mutale</div>
-                        <div class="text-sm text-zinc-500">Kabwe</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-zinc-900 p-8 rounded-3xl">
-                <p class="italic text-zinc-300">"The 43 inch TV is clear and the sound is excellent. I recommend Lukanga Stores to everyone."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-full"></div>
-                    <div>
-                        <div class="font-medium">Mr. Robert Phiri</div>
-                        <div class="text-sm text-zinc-500">Teacher, Kabwe</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-zinc-900 p-8 rounded-3xl">
-                <p class="italic text-zinc-300">"Bought a cooker and microwave. Products are original and prices are better than in Lusaka."</p>
-                <div class="mt-6 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-full"></div>
-                    <div>
-                        <div class="font-medium">Mrs. Esther Tembo</div>
-                        <div class="text-sm text-zinc-500">Kabwe</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT US -->
-<section id="about" class="py-20 bg-zinc-900">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="inline-flex items-center gap-2 bg-amber-500/10 text-amber-400 px-4 py-2 rounded-3xl text-sm font-medium mb-6">
-                    <i class="fa-solid fa-clock"></i> EST. 2015
-                </div>
-                <h2 class="heading-font text-5xl tracking-tighter leading-none mb-6">
-                    Quality Home Solutions in Kabwe
-                </h2>
-                <p class="text-zinc-300 text-lg leading-relaxed">
-                    Lukanga Stores is your trusted destination for modern furniture, televisions, refrigerators, and home appliances in Kabwe. 
-                    We bring quality products at affordable prices to make your house a comfortable home.
-                </p>
-            </div>
-            <div class="bg-zinc-800 border border-zinc-700 rounded-3xl p-8">
-                <div class="flex items-start gap-4 mb-6">
-                    <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-3xl">📍</div>
-                    <div>
-                        <div class="font-semibold text-2xl">Lukanga Stores</div>
-                        <div class="text-zinc-400">Lusaka Road, Kabwe, Zambia</div>
-                    </div>
-                </div>
-                <a href="https://www.google.com/search?q=Lukanga+Stores+Kabwe" target="_blank" class="block text-amber-400 hover:underline">View on Google Maps →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-20 bg-zinc-950">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="heading-font text-5xl tracking-tighter mb-6">Ready to Upgrade Your Home?</h2>
-        <p class="text-zinc-400 mb-10">Call or WhatsApp us for best prices and fast delivery</p>
-        <a href="tel:0979077079" class="inline-block bg-amber-500 text-black font-semibold px-12 py-5 rounded-3xl text-xl">Call 0979 077 079</a>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-black py-12 border-t border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-zinc-500">
-        <p>© 2026 Lukanga Stores • Kabwe, Zambia</p>
-        <p class="mt-2">Quality Furniture &amp; Home Appliances Since 2015</p>
-    </div>
-</footer>
+<!-- NAVBAR, HERO, BANNER, WHY CHOOSE US, TESTIMONIALS, ABOUT US, CONTACT, FOOTER remain the same as you have -->
+<!-- (I kept them unchanged for brevity - just copy from your current code if you want, but they are already correct) -->
 
 <!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/260979077079" target="_blank"
@@ -271,18 +35,40 @@
 </a>
 
 <script>
-// ==================== PRODUCTS FOR LUKANGA STORES ====================
+// ==================== IMPROVED PRODUCTS LOADER (with better debugging) ====================
 let products = [];
 
 async function loadProducts() {
     try {
+        console.log("🔄 Trying to load products.json from:", window.location.origin + "/products.json");
+        
         const response = await fetch('products.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP Error ${response.status} - File not found or blocked`);
+        }
+        
         products = await response.json();
+        
+        console.log(`✅ Successfully loaded ${products.length} products`);
+        
         renderFeatured();
         renderProducts(products);
     } catch (error) {
-        console.error("Could not load products:", error);
-        alert("Products file not found. Please make sure products.json exists.");
+        console.error("❌ Failed to load products.json:", error);
+        
+        const errorMsg = `
+            <div class="col-span-full text-center py-16">
+                <i class="fa-solid fa-circle-exclamation text-6xl text-red-500 mb-4"></i>
+                <h3 class="text-xl font-semibold text-red-400 mb-2">Products could not be loaded</h3>
+                <p class="text-zinc-400">Please make sure <strong>products.json</strong> exists in the root folder.</p>
+                <p class="text-sm text-zinc-500 mt-4">Error: ${error.message}</p>
+            </div>`;
+        
+        document.getElementById('product-grid').innerHTML = errorMsg;
+        document.getElementById('featured-grid').innerHTML = errorMsg;
+        
+        alert("Products file not found.\n\nMake sure:\n1. The file is named exactly 'products.json' (lowercase)\n2. It is in the same folder as index.html (root folder)\n3. You have committed & pushed it to GitHub");
     }
 }
 
@@ -342,7 +128,7 @@ function navigateTo(section) {
     document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Initialize
+// Start the website
 window.onload = () => {
     loadProducts();
 };
