@@ -1,32 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lukanga Stores | TVs, Fridges & Furniture - Kabwe, Zambia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', sans-serif; }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('images/furniture-hero.jpg') center/cover;
-            min-height: 85vh;
-        }
-        .product-card:hover { transform: translateY(-8px); transition: all 0.3s ease; }
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 50;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lukanga Stores | TVs, Fridges & Furniture - Kabwe, Zambia</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+body { font-family: 'Inter', system_ui, sans-serif; }
+.heading-font { font-family: 'Space Grotesk', sans-serif; }
+.hero-bg { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('images/furniture-hero.jpg') center/cover; min-height: 85vh; }
+.product-card:hover { transform: translateY(-8px); transition: all 0.3s ease; }
+.floating-whatsapp { position: fixed; bottom: 20px; right: 20px; z-index: 50; }
+</style>
 </head>
 <body class="bg-zinc-950 text-zinc-100">
 
-<!-- NAVBAR, HERO, BANNER, WHY CHOOSE US, TESTIMONIALS, ABOUT US, CONTACT, FOOTER remain the same as you have -->
-<!-- (I kept them unchanged for brevity - just copy from your current code if you want, but they are already correct) -->
+<!-- NAVBAR -->
+<nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-500 rounded-2xl flex items-center justify-center text-3xl">🛋️</div>
+                <div>
+                    <span class="heading-font text-3xl tracking-tighter">LUKANGA</span>
+                    <span class="text-amber-400 text-xs font-medium block -mt-1">STORES • KABWE</span>
+                </div>
+            </div>
+            <div class="flex-1 max-w-md mx-8 hidden md:flex">
+                <div class="relative w-full">
+                    <input type="text" id="search-input" placeholder="Search TVs, Fridges, Furniture..." class="w-full bg-zinc-800 border border-zinc-700 focus:border-amber-500 rounded-3xl py-3 px-5 pl-12 text-sm focus:outline-none" onkeyup="filterProducts()">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"></i>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <button onclick="focusSearch()" class="md:hidden flex items-center gap-2 text-sm hover:text-amber-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <div class="hidden md:flex gap-8 text-sm font-medium">
+                    <a onclick="navigateTo('home')" class="hover:text-amber-400 cursor-pointer">Home</a>
+                    <a onclick="navigateTo('shop')" class="hover:text-amber-400 cursor-pointer">Shop</a>
+                    <a onclick="navigateTo('about')" class="hover:text-amber-400 cursor-pointer">About Us</a>
+                    <a onclick="navigateTo('contact')" class="hover:text-amber-400 cursor-pointer">Contact</a>
+                </div>
+                <a href="tel:0979077079" class="flex items-center gap-2 hover:text-amber-400 text-sm">
+                    <i class="fa-solid fa-phone"></i> Call Us
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero-bg flex items-center text-center">
+    <div class="max-w-4xl mx-auto px-6">
+        <h1 class="heading-font text-6xl md:text-7xl tracking-tighter leading-none mb-6">
+            QUALITY FURNITURE, TVs &amp; HOME APPLIANCES
+        </h1>
+        <p class="text-xl md:text-2xl text-zinc-300">Best prices in Kabwe • Fast delivery across Zambia</p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="navigateTo('shop')" class="bg-amber-500 text-black font-semibold px-10 py-5 rounded-3xl text-lg">Shop Now</button>
+            <a href="tel:0979077079" class="border border-white/60 hover:bg-white/10 px-10 py-5 rounded-3xl text-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone"></i> Call Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="py-16 bg-zinc-900">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="heading-font text-4xl tracking-tighter text-center mb-10">Featured Products</h2>
+        <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+</section>
+
+<!-- SHOP SECTION -->
+<section id="shop" class="py-20 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+            <div>
+                <h2 class="heading-font text-5xl tracking-tighter">Our Products</h2>
+                <p class="text-zinc-400 mt-2">Quality TVs, Fridges, Furniture &amp; Home Appliances</p>
+            </div>
+            <button onclick="focusSearch()" class="mt-6 md:mt-0 bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-4 rounded-3xl flex items-center gap-3">
+                <i class="fa-solid fa-magnifying-glass"></i> Search Products
+            </button>
+        </div>
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        <div id="no-results" class="hidden text-center py-20">
+            <i class="fa-solid fa-magnifying-glass text-6xl text-zinc-600 mb-4"></i>
+            <p class="text-xl text-zinc-400">No products found.</p>
+            <button onclick="clearSearch()" class="mt-6 text-amber-400 hover:text-amber-300 underline">Clear search</button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black py-12 border-t border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-zinc-500">
+        <p>© 2026 Lukanga Stores • Kabwe, Zambia</p>
+        <p class="mt-2">Quality Furniture &amp; Home Appliances Since 2015</p>
+    </div>
+</footer>
 
 <!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/260979077079" target="_blank"
@@ -35,46 +112,30 @@
 </a>
 
 <script>
-// ==================== IMPROVED PRODUCTS LOADER (with better debugging) ====================
+// ==================== PRODUCTS ====================
 let products = [];
 
 async function loadProducts() {
     try {
-        console.log("🔄 Trying to load products.json from:", window.location.origin + "/products.json");
-        
         const response = await fetch('products.json');
-        
-        if (!response.ok) {
-            throw new Error(`HTTP Error ${response.status} - File not found or blocked`);
-        }
-        
         products = await response.json();
-        
-        console.log(`✅ Successfully loaded ${products.length} products`);
-        
         renderFeatured();
         renderProducts(products);
     } catch (error) {
-        console.error("❌ Failed to load products.json:", error);
-        
-        const errorMsg = `
-            <div class="col-span-full text-center py-16">
-                <i class="fa-solid fa-circle-exclamation text-6xl text-red-500 mb-4"></i>
-                <h3 class="text-xl font-semibold text-red-400 mb-2">Products could not be loaded</h3>
-                <p class="text-zinc-400">Please make sure <strong>products.json</strong> exists in the root folder.</p>
-                <p class="text-sm text-zinc-500 mt-4">Error: ${error.message}</p>
-            </div>`;
-        
-        document.getElementById('product-grid').innerHTML = errorMsg;
-        document.getElementById('featured-grid').innerHTML = errorMsg;
-        
-        alert("Products file not found.\n\nMake sure:\n1. The file is named exactly 'products.json' (lowercase)\n2. It is in the same folder as index.html (root folder)\n3. You have committed & pushed it to GitHub");
+        console.error("Could not load products:", error);
+        alert("Products file not found. Please make sure products.json exists.");
     }
 }
 
 function renderProducts(filtered = products, containerId = 'product-grid') {
     const grid = document.getElementById(containerId);
     grid.innerHTML = '';
+    if(filtered.length === 0) {
+        document.getElementById('no-results').classList.remove('hidden');
+        return;
+    } else {
+        document.getElementById('no-results').classList.add('hidden');
+    }
     filtered.forEach(p => {
         const whatsappMsg = encodeURIComponent(`Hi Lukanga Stores,\nI'm interested in:\n${p.name}\nPrice: ZMW ${p.price}/${p.unit}\nPlease send more details.`);
         const html = `
@@ -104,7 +165,7 @@ function renderFeatured() {
 }
 
 function filterProducts() {
-    const term = (document.getElementById('search-input').value || document.getElementById('search-input-mobile').value || "").toLowerCase().trim();
+    const term = (document.getElementById('search-input').value || document.getElementById('search-input-mobile')?.value || "").toLowerCase().trim();
     if (!term) return renderProducts(products);
     const filtered = products.filter(p =>
         p.name.toLowerCase().includes(term) || p.category.toLowerCase().includes(term)
@@ -114,7 +175,7 @@ function filterProducts() {
 
 function focusSearch() {
     const input = window.innerWidth >= 768 ? document.getElementById('search-input') : document.getElementById('search-input-mobile');
-    input.focus();
+    input?.focus();
     navigateTo('shop');
 }
 
@@ -125,10 +186,10 @@ function clearSearch() {
 }
 
 function navigateTo(section) {
-    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Start the website
+// Initialize
 window.onload = () => {
     loadProducts();
 };
